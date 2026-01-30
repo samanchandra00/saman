@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotation Maker 2</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Quotation Maker</h2>
+
+    <!-- Customer Details -->
+    <div class="card">
+      <h3>Customer Details</h3>
+      <input type="text" id="customerName" placeholder="Customer Name" required>
+      <input type="text" id="customerPhone" placeholder="Phone Number" required>
+      <input type="email" id="customerEmail" placeholder="Email Address" required>
+    </div>
+
+    <!-- Add Item -->
+    <div class="card">
+      <h3>Add Item</h3>
+      <select id="product">
+        <option value="Product A" data-price="1000">Product A - 1000</option>
+        <option value="Product B" data-price="2500">Product B - 2500</option>
+        <option value="Product C" data-price="500">Product C - 500</option>
+      </select>
+      <input type="number" id="qty" placeholder="Quantity" min="1" value="1">
+      <button onclick="addItem()">Add Item</button>
+    </div>
+
+    <!-- Quotation Table -->
+    <div class="card">
+      <h3>Quotation</h3>
+      <table id="quoteTable">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h3 class="total">Grand Total: <span id="grandTotal">0</span></h3>
+
+      <button class="pdf-btn" onclick="generatePDF()">Download & Send Quote</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
